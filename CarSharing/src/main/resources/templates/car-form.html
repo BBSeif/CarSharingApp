@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <title>Add Car</title>
+</head>
+
+<body>
+    <div class="container">
+      <h3>Add Car to Company </h3>
+      <hr>
+      <a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Back to Company List</a>
+
+
+      <p class="h4 mb-4"> Save Car </p>
+
+      <form action="#" th:action="@{/saveCar}"
+                      th:object="${company}" method="POST">
+
+        <input type="hidden" th:field="*{id}"
+               class="form-control mb-4 w-25" placeholder="companyId"/>
+
+        <input type="text" th:field="*{name}"
+                class="form-control mb-4 w-25" placeholder="Company name"/>
+
+
+
+
+
+
+<!--        &lt;!&ndash; Parent name &ndash;&gt;-->
+
+<!--        <button type="submit" class="btn btn-info col-2">Save</button>-->
+
+<!--      </form>-->
+
+<!--      <form th:field="*{companies}" action="#" th:action="@{/save}"  th:object="${company}" method="POST">-->
+<!--        <option th:each="company : ${companies}" th:value="${company}" th:text="${company.name}"></option>-->
+<!--      </form>-->
+
+        <!-- Course fields -->
+        <input type="text" name = "carName"  class="form-control mb-4 w-25" placeholder="Car name" />
+
+        <button type="submit" class="btn btn-info btn-sm mb-3">Add Car</button>
+      </form>
+
+
+      <hr>
+
+
+    </div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
