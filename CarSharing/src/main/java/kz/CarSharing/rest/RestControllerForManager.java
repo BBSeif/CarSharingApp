@@ -3,24 +3,20 @@ package kz.CarSharing.rest;
 import kz.CarSharing.dao.AppDao;
 import kz.CarSharing.entity.Car;
 import kz.CarSharing.entity.Company;
-import kz.CarSharing.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-public class RestController {
+public class RestControllerForManager {
 
     private AppDao appDao;
 
     @Autowired
-    public RestController(AppDao appDao) {
+    public RestControllerForManager(AppDao appDao) {
         this.appDao = appDao;
     }
 
@@ -38,7 +34,13 @@ public class RestController {
     @GetMapping("/delete")
     public String delete(@RequestParam("companyId") int theId) {
 
-        appDao.deleteCompanyById(theId);
+        Company tempCompany = appDao.findCompanyById(theId);
+
+        List<Car> cars = tempCompany.getCars();
+        for (Car car : cars) {
+            car.setCompany(null);
+        }
+        appDao.deleteCompany(tempCompany);
 
         return "redirect:/company";
     }
@@ -81,7 +83,6 @@ public class RestController {
         return "car-list";
     }
 
-
     /**
      * For Car entity
      */
@@ -113,10 +114,18 @@ public class RestController {
         return "redirect:/company";
     }
 
+    @GetMapping("/deleteCar")
+    private String deleteCar(@RequestParam("carId") int theId) {
+
+        appDao.deleteCarById(theId);
+
+        return "redirect:/company";
+    }
+
+    @GetMapping("/updateCar")
+    private void updateCar(@RequestParam("carId") int theId) {
+//        Car tempCar = appDao.findCarById(theId);
 
 
-
-    /**
-     * For Customer entity
-     */
+    }
 }

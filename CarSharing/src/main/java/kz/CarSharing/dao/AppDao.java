@@ -18,7 +18,7 @@ public interface AppDao {
 
     Company findCompanyById(int id);
 
-    void deleteCompanyById(int id);
+    void deleteCompany(Company tempCompany);
 
 
    List<Company> findAllCompany();
@@ -26,5 +26,13 @@ public interface AppDao {
     List<Car> findCarsByCompanyId(int theId);
 
     Company findCompanyByIdJoinFetch(int theId);
+
+    Car findCarById(int theId);
+
+    void deleteCarById(int id);
+
+    void updateCar(Car car);
+
+    List<Car> allCars();
 
 }

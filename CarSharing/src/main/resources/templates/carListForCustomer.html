@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Customer Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Customer Directory</h3>
+    <hr>
+
+    <!--	Add a button   -->
+    <a th:href="@{/mainPage}"
+       class="btn btn-primary btn-sm mb-3">
+        Main Page
+    </a>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th> Company name </th>
+            <th> Car id </th>
+            <th> Car name </th>
+            <!--				<th> Customer name </th>-->
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each=" car : ${cars}">
+            <td th:text="${car.company.name}" />
+            <td th:text="${car.id}" />
+            <td th:text="${car.name}" />
+<!--            <td th:text="${cars.customer.name}" />-->
+
+            <td>
+                <a th:href="@{/addCar(carId=${car.id})}"
+                   class="btn btn-info btn-sm">
+                    Rent Car </a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+<!--    <a th:href="@{addCar(companyId=${company.id})}"-->
+<!--       class="btn btn-info btn-sm">-->
+<!--        Add Car</a>-->
+
+</div>
+
+</body>
+</html>

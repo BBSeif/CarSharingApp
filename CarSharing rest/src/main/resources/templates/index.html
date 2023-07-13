@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Main menu</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Main Directory</h3>
+    <hr>
+
+    <a th:href="@{/company}"
+       class="btn btn-primary btn-sm mb-3">
+      Company form
+    </a>
+
+    <br><br>
+
+    <a th:href="@{/cars}"
+       class="btn btn-primary btn-sm mb-3">
+      Car Form
+    </a>
+
+
+    <br><br>
+
+    <a th:href="@{/customer}"
+       class="btn btn-primary btn-sm mb-3">
+        Customer Form
+    </a>
+</div>
+</body>
+</html>

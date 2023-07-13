@@ -49,10 +49,7 @@ public class AppDaoImpl implements AppDao {
 
     @Override
     @Transactional
-    public void deleteCompanyById(int id) {
-
-        Company tempCompany = entityManager.find(Company.class, id);
-
+    public void deleteCompany(Company tempCompany) {
         entityManager.remove(tempCompany);
     }
 
@@ -90,4 +87,35 @@ public class AppDaoImpl implements AppDao {
     }
 
 
+    @Override
+    public Car findCarById(int theId) {
+        return entityManager.find(Car.class, theId);
+    }
+
+    @Override
+    @Transactional
+    public void deleteCarById(int id) {
+        Car car = entityManager.find(Car.class, id);
+
+        entityManager.remove(car);
+    }
+
+    @Override
+    @Transactional
+    public void updateCar(Car car) {
+        entityManager.merge(car);
+    }
+
+    /**
+     * Dao for Customer part
+     */
+
+    @Override
+    public List<Car> allCars() {
+        TypedQuery<Car> query = entityManager.createQuery("select c from Car c ", Car.class);
+
+        List<Car> cars = query.getResultList();
+
+        return cars;
+    }
 }

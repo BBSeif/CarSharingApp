@@ -20,52 +20,47 @@
 	<hr>
 
 <!--	Add a button   -->
-	<a th:href="@{/}"
+	<a th:href="@{/showFormForAdd}"
 		class="btn btn-primary btn-sm mb-3">
-		<< Back
+		Add Employee
 	</a>
 
 
 	<table class="table table-bordered table-striped">
 		<thead class="table-dark">
 			<tr>
-
-				<th> Company name </th>
-				<th> Car id </th>
-				<th> Car name </th>
-<!--				<th> Customer name </th>-->
+				<th> Id</th>
+				<th>Car name</th>
+				<th> Company name</th>
+				<th> Customer name</th>
 				<th>Action</th>
 			</tr>
 		</thead>
 		
 		<tbody>
+			<tr th:each=" car : ${cars}">
 
-		<tr th:each=" car : ${cars}">
-			<td th:text="${car.company.name}" />
-			<td th:text="${car.id}" />
-			<td th:text="${car.name}" />
+				<td th:text="${car.id}" />
+				<td th:text="${car.name}" />
+<!--				<td th:text="${car.company.name}" />-->
 <!--				<td th:text="${cars.customer.name}" />-->
 
-				<td>
-					<a th:href="@{/addCar(carId=${car.id})}"
-						class="btn btn-info btn-sm">
-						Update</a>
+<!--				<td>-->
+<!--					<a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"-->
+<!--						class="btn btn-info btn-sm">-->
+<!--						Update</a>-->
 
 <!--					&lt;!&ndash;		Add "delete" button/link			&ndash;&gt;-->
-					<a th:href="@{/deleteCar(carId=${car.id})}"
-					   class="btn btn-danger btn-sm"
-						onclick="if (!(confirm('Are you sure you want to delete this car?'))) return false">
-						Delete
-					</a>
-				</td>
+<!--					<a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"-->
+<!--					   class="btn btn-danger btn-sm"-->
+<!--						onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">-->
+<!--						Delete-->
+<!--					</a>-->
+<!--				</td>-->
 
 			</tr>
 		</tbody>		
 	</table>
-
-	<a th:href="@{addCar(companyId=${company.id})}"
-								class="btn btn-info btn-sm">
-								Add Car</a>
 	
 </div>
 	

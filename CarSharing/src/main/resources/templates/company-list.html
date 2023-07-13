@@ -49,17 +49,13 @@
 
 				<td>
 <!--					/employees/showFormForUpdate(employeeId=${tempEmployee.id})-->
-					<a th:href="@{/companyid(companyId=${company.id})}"
+					<a th:href="@{companyid(companyId=${company.id})}"
 						class="btn btn-info btn-sm">
 						Choose </a>
 
 
-
-
-
-
 					<!--		Add "delete" button/link	/employees/delete(employeeId=${tempEmployee.id})	 	-->
-					<a th:href="@{/delete(companyId=${company.id})}"
+					<a th:href="@{delete(companyId=${company.id})}"
 					   class="btn btn-danger btn-sm"
 						onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
 						Delete
